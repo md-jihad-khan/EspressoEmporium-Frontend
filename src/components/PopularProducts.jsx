@@ -1,5 +1,6 @@
 import cup from "../assets/icons/1.png";
 import cupbg from "../assets/4.png";
+import shelterbg from "../assets/5.png";
 import coffeCup from "../assets/cup.png";
 import { IoMdEye } from "react-icons/io";
 import { FaPen } from "react-icons/fa";
@@ -58,6 +59,7 @@ const PopularProducts = () => {
           </div>
         </div>
       </div>
+      <img className="absolute bottom-0 right-0 -z-10" src={shelterbg} alt="" />
     </div>
   );
 };
