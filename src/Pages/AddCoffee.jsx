@@ -1,7 +1,48 @@
 import { Link } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
+import Swal from "sweetalert2";
 
 const AddCoffee = () => {
+  const handleAddCoffee = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const name = form.name.value;
+    const chef = form.chef.value;
+    const supplier = form.supplier.value;
+    const price = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+
+    const coffee = { name, chef, supplier, price, category, details, photo };
+
+    fetch("http://localhost:5000/coffee", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(coffee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Coffee Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+
+        form.reset();
+      });
+  };
+
   return (
     <div>
       <div className="md:w-4/5 mx-auto p-5">
@@ -24,7 +65,7 @@ const AddCoffee = () => {
             </p>
           </div>
 
-          <form className="p-4">
+          <form className="p-4" onSubmit={handleAddCoffee}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="form-control">
                 <label className="label">
@@ -67,13 +108,13 @@ const AddCoffee = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold text-xl">
-                    Taste
+                    Price
                   </span>
                 </label>
                 <input
                   type="text"
                   name="taste"
-                  placeholder="Enter coffee taste"
+                  placeholder="Enter coffee Price"
                   className="input  bg-white"
                   required
                 />

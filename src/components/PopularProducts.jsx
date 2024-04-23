@@ -1,12 +1,23 @@
 import cup from "../assets/icons/1.png";
 import cupbg from "../assets/4.png";
 import shelterbg from "../assets/5.png";
-import coffeCup from "../assets/cup.png";
-import { IoMdEye } from "react-icons/io";
-import { FaPen } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import { useEffect, useState } from "react";
+import CoffeeCard from "./CoffeeCard";
 
 const PopularProducts = () => {
+  const [coffees, setCoffees] = useState([]);
+  const [reload, setReload] = useState(null);
+
+  const handleReload = () => {
+    setReload(!reload);
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/coffees")
+      .then((res) => res.json())
+      .then((data) => setCoffees(data));
+  }, [reload]);
+
   return (
     <div className="relative">
       <img className="absolute -z-10 top-20" src={cupbg} alt="" />
@@ -22,41 +33,13 @@ const PopularProducts = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5  mt-6">
-          <div className="bg-[#F5F4F1] gap-2 p-4 flex justify-evenly items-center rounded-lg ">
-            <img className="lg:w-40 w-28 md:w-32 " src={coffeCup} alt="" />
-            <div className="md:space-y-2">
-              <p className="font-bold text-sm lg:text-lg">
-                Name:
-                <span className="font-normal ml-2 text-gray-500">
-                  America kdfkjdk
-                </span>
-              </p>
-              <p className="font-bold text-sm lg:text-lg">
-                Chef:
-                <span className="font-normal ml-2 text-gray-500">
-                  hi kdfkjdk
-                </span>
-              </p>
-              <p className="font-bold text-sm lg:text-lg">
-                Price:
-                <span className="font-normal ml-2 text-gray-500">
-                  hi kdfkjdk
-                </span>
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <button className="bg-[#D2B48C] text-white p-2 rounded-sm">
-                <IoMdEye className="md:text-xl" />
-              </button>
-              <button className="bg-black text-white p-2 rounded-sm">
-                <FaPen className="md:text-xl" />
-              </button>
-              <button className="bg-[#EA4744] text-white p-2 rounded-sm">
-                <MdDelete className="md:text-xl" />
-              </button>
-            </div>
-          </div>
+          {coffees.map((coffee) => (
+            <CoffeeCard
+              key={coffee._id}
+              coffee={coffee}
+              handleReload={handleReload}
+            ></CoffeeCard>
+          ))}
         </div>
       </div>
       <img className="absolute bottom-0 right-0 -z-10" src={shelterbg} alt="" />
