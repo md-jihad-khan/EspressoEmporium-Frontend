@@ -3,6 +3,7 @@ import cupbg from "../assets/4.png";
 import shelterbg from "../assets/5.png";
 import { useEffect, useState } from "react";
 import CoffeeCard from "./CoffeeCard";
+import { Link } from "react-router-dom";
 
 const PopularProducts = () => {
   const [coffees, setCoffees] = useState([]);
@@ -27,9 +28,12 @@ const PopularProducts = () => {
           <h2 className="text-5xl font-rancho font-bold text-[#331A15]  ">
             Our Popular Products
           </h2>
-          <button className="btn bg-[#E3B577] text-white font-rancho">
+          <Link
+            to={"/addCoffee"}
+            className="btn bg-[#E3B577] text-white font-rancho"
+          >
             <img src={cup} className="w-4" alt="" /> Add Coffee
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5  mt-6">
