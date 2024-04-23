@@ -3,6 +3,7 @@ import { FaPen } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const CoffeeCard = ({ coffee, handleReload }) => {
   const handleDelete = (id) => {
@@ -56,9 +57,12 @@ const CoffeeCard = ({ coffee, handleReload }) => {
         <button className="bg-[#D2B48C] text-white p-2 rounded-sm">
           <IoMdEye className="md:text-xl" />
         </button>
-        <button className="bg-black text-white p-2 rounded-sm">
+        <Link
+          to={`coffee/${coffee._id}`}
+          className="bg-black text-white p-2 rounded-sm"
+        >
           <FaPen className="md:text-xl" />
-        </button>
+        </Link>
         <button
           className="bg-[#EA4744] text-white p-2 rounded-sm"
           onClick={() => handleDelete(coffee._id)}
