@@ -1,5 +1,3 @@
-import cupbg from "../assets/4.png";
-import shelterbg from "../assets/5.png";
 import { useEffect, useState } from "react";
 import CoffeeCard from "./CoffeeCard";
 import { Link } from "react-router-dom";
