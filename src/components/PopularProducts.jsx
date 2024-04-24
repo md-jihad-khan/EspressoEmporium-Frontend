@@ -1,4 +1,3 @@
-import cup from "../assets/icons/1.png";
 import cupbg from "../assets/4.png";
 import shelterbg from "../assets/5.png";
 import { useEffect, useState } from "react";
@@ -21,7 +20,11 @@ const PopularProducts = () => {
 
   return (
     <div className="relative">
-      <img className="absolute -z-10 top-20" src={cupbg} alt="" />
+      <img
+        className="absolute -z-10 top-20"
+        src="https://i.postimg.cc/x134L6Xm/4.png"
+        alt=""
+      />
       <div className="w-4/5 mx-auto py-20">
         <div className="text-center space-y-4">
           <h5 className="text-xl r">--- Sip & Savor ---</h5>
@@ -32,7 +35,12 @@ const PopularProducts = () => {
             to={"/addCoffee"}
             className="btn bg-[#E3B577] text-white font-rancho"
           >
-            <img src={cup} className="w-4" alt="" /> Add Coffee
+            <img
+              src="https://i.postimg.cc/wxRLC3c4/1.png"
+              className="w-4"
+              alt=""
+            />{" "}
+            Add Coffee
           </Link>
         </div>
 
@@ -46,7 +54,11 @@ const PopularProducts = () => {
           ))}
         </div>
       </div>
-      <img className="absolute bottom-0 right-0 -z-10" src={shelterbg} alt="" />
+      <img
+        className="absolute bottom-0 right-0 -z-10"
+        src="https://i.postimg.cc/zXnt1xSQ/5.png"
+        alt=""
+      />
     </div>
   );
 };

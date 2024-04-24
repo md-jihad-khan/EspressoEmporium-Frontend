@@ -1,11 +1,10 @@
-import banner from "../assets/3.png";
 const Banner = () => {
   return (
     <div className="relative">
       <div
         className="hero min-h-[calc(100vh-72px)]"
         style={{
-          backgroundImage: `url(${banner})`,
+          backgroundImage: `url(https://i.postimg.cc/Dzz7tJsS/3.png)`,
         }}
       >
         <div className="hero-content text-center  md:text-left text-white ">
