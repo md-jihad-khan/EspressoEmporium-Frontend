@@ -28,7 +28,7 @@ const UpdateCoffee = () => {
       details,
       photo,
     };
-    fetch(`http://localhost:5000/coffee/${coffee._id}`, {
+    fetch(`https://espressoemporium.onrender.com/coffee/${coffee._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

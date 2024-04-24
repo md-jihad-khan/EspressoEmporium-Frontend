@@ -25,13 +25,13 @@ const router = createBrowserRouter([
         path: "/updateCoffee/:id",
         element: <UpdateCoffee></UpdateCoffee>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffee/${params.id}`),
+          fetch(`https://espressoemporium.onrender.com/coffee/${params.id}`),
       },
       {
         path: "/coffee/:id",
         element: <SingleCoffepage></SingleCoffepage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffee/${params.id}`),
+          fetch(`https://espressoemporium.onrender.com/coffee/${params.id}`),
       },
     ],
   },

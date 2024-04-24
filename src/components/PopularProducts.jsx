@@ -11,7 +11,7 @@ const PopularProducts = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/coffees")
+    fetch("https://espressoemporium.onrender.com/coffees")
       .then((res) => res.json())
       .then((data) => setCoffees(data));
   }, [reload]);
