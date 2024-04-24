@@ -54,11 +54,14 @@ const CoffeeCard = ({ coffee, handleReload }) => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <button className="bg-[#D2B48C] text-white p-2 rounded-sm">
-          <IoMdEye className="md:text-xl" />
-        </button>
         <Link
           to={`coffee/${coffee._id}`}
+          className="bg-[#D2B48C] text-white p-2 rounded-sm"
+        >
+          <IoMdEye className="md:text-xl" />
+        </Link>
+        <Link
+          to={`updateCoffee/${coffee._id}`}
           className="bg-black text-white p-2 rounded-sm"
         >
           <FaPen className="md:text-xl" />
