@@ -4,4 +4,4 @@ Welcome to Espresso Emporium! This is a virtual coffee haven where coffee enthus
 
 ## Live Website
 
-You can visit the live website [here](https://espresso-emporium-jihad.netlify.app/).
+You can visit the live website at: https://espresso-emporium-jihad.netlify.app/
